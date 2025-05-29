@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import React, { useState } from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { Provider as PaperProvider, IconButton } from 'react-native-paper';
@@ -11,13 +12,16 @@ export default function App() {
     <View style={styles.main}>
       <PaperProvider>
         <View style={styles.container}>
-          <IconButton
-            icon="dots-vertical"
-            size={40}
-            iconColor="white"
-            onPress={() => console.log('opçoes abertas')}
-            style={styles.opcoes}
-          />
+          <Link href="/galeria">
+            <IconButton
+              icon="dots-vertical"
+              size={40}
+              iconColor="white"
+              onPress={() => console.log('opçoes abertas')}
+              style={styles.opcoes}
+            />
+          </Link>
+          <Link href="/galeria"><Text style={[styles.texto]}>voltando</Text></Link>
 
           <Image source={require('../assets/images/images.jpeg')} style={[styles.img]} />
 
@@ -28,7 +32,7 @@ export default function App() {
               size={40}
               iconColor={favorito ? 'red' : 'white'}
               onPress={() => setfavoritar((!favorito))}
-              // style={[styles.opcoe]}
+            // style={[styles.opcoe]}
             />
           </View>
 
@@ -106,6 +110,6 @@ const styles = StyleSheet.create({
   texto: {
     color: "white",
     fontSize: 25,
-    
+
   }
 });
